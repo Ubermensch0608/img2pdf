@@ -1,0 +1,46 @@
+{
+  "name": "이미지 → PDF 변환기",
+  "short_name": "Image2PDF",
+  "description": "이미지를 빠르고 간편하게 PDF로 변환하는 웹 앱",
+  "lang": "ko-KR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FBEA8C",
+  "theme_color": "#FBEA8C",
+  "orientation": "portrait-primary",
+
+  "icons": [
+    {
+      "src": "/icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
