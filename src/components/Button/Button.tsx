@@ -28,7 +28,7 @@ export const Button = ({
   className,
   ...rest
 }: CommonProps & (ButtonProps | AnchorButtonProps | LabelButtonProps)) => {
-  const Component = as === "button" ? "button" : "label";
+  const Component = as;
 
   return (
     <Component
