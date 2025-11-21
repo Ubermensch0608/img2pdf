@@ -11,6 +11,7 @@ export const InnerContent = () => {
   const {
     imgFiles,
     uploadImageFiles,
+    rotateImage,
     addImage,
     removeImage,
     isLoading,
@@ -33,6 +34,7 @@ export const InnerContent = () => {
           imgFiles={imgFiles}
           onAddImage={addImage}
           onRemoveImage={removeImage}
+          onRotate={rotateImage}
         />
 
         <form onSubmit={handleSubmit}>

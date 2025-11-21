@@ -19,6 +19,7 @@ interface ImageItemProps {
   height?: number | `${number}`;
   src: string;
   alt: string;
+  onRotate: (degree: number) => void;
 }
 
 export const ImageItem = ({
@@ -26,6 +27,7 @@ export const ImageItem = ({
   height = DEFAULT_HEIGHT,
   src,
   alt,
+  onRotate,
 }: ImageItemProps) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
 
@@ -49,6 +51,8 @@ export const ImageItem = ({
       direction,
     );
     imageRef.current.style.transform = `rotate(${newDegree}deg)`;
+
+    onRotate?.(newDegree);
   };
 
   return (
