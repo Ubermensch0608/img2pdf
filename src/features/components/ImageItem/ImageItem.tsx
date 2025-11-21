@@ -34,7 +34,7 @@ export const ImageItem = ({
     direction: RotateDirection,
   ) => {
     const rotationDegree = ROTATION_DEGREE_MAP[direction];
-    return prevDegree + rotationDegree;
+    return (prevDegree + rotationDegree) % 360;
   };
 
   const handleRotate = (direction: RotateDirection) => {
@@ -59,7 +59,7 @@ export const ImageItem = ({
         src={src}
         alt={alt}
         ref={imageRef}
-        quality={0.1}
+        quality={50}
       />
       <div className="flex justify-center items-center gap-2">
         <Rotator direction="COUNTER_CLOCKWISE" onRotate={handleRotate} />

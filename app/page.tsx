@@ -1,6 +1,6 @@
 "use client";
 
-import { jsPDF, jsPDFOptions } from "jspdf";
+import { jsPDF } from "jspdf";
 import { Button } from "@/components/Button";
 import { useState } from "react";
 import { ImageItem } from "@/src/features/components/ImageItem/ImageItem";
@@ -13,59 +13,58 @@ export default function Home() {
   const [pdf, setPdf] = useState<jsPDF | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const imagesToPdf = async (files: File[]) => {
+    const pdf = new jsPDF("p", "px", "a4");
+
+    for (let i = 0; i < files.length; i++) {
+      const dataUrl = await readAsDataURL(files[i]);
+      const img = await loadImage(dataUrl);
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      // 비율 유지하며 맞추기
+      const aspectRatio = Math.min(
+        pageWidth / img.width,
+        pageHeight / img.height,
+      );
+      const w = img.width * aspectRatio;
+      const h = img.height * aspectRatio;
+
+      if (i !== 0) {
+        pdf.addPage();
+      }
+      pdf.addImage(img, "JPEG", 0, 0, w, h);
+    }
+
+    return pdf;
+  };
+
+  const readAsDataURL = (file: File) => {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const loadImage = (src: string) => {
+    return new Promise<HTMLImageElement>((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject;
+      img.src = src;
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const pdfConfigs: jsPDFOptions = {
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4",
-      };
-      const pdf = new jsPDF(pdfConfigs);
+      const pdf = await imagesToPdf(files);
 
-      for (const file of files) {
-        const fileType = file.type.replace("image/", "");
-
-        if (IMAGE_BLACK_LIST.includes(fileType)) {
-          continue;
-        }
-
-        const imageUrl = URL.createObjectURL(file);
-
-        try {
-          const img = await new Promise<HTMLImageElement>((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = () => reject;
-            img.src = imageUrl;
-
-            // 이미지를 a4 용지 크기에 맞게 조정
-            const aspectRatio = img.width / img.height;
-            const newWidth = 210;
-            const newHeight = newWidth / aspectRatio;
-
-            if (pdf.getCurrentPageInfo().pageNumber >= 1) {
-              pdf.addPage();
-            }
-            pdf.addImage(
-              img,
-              fileType.toUpperCase(),
-              0,
-              0,
-              img.width,
-              img.height,
-            );
-          });
-        } finally {
-          URL.revokeObjectURL(imageUrl);
-        }
-      }
-
-      pdf.save(
-        `converted-${Intl.DateTimeFormat("ko-KR").format(new Date())}.pdf`,
-      );
       setPdf(pdf);
     } catch (error) {
       console.error("PDF 변환 중 오류 발생:", error);
