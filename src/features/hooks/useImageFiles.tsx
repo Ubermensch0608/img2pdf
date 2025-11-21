@@ -74,9 +74,36 @@ export const useImageFiles = () => {
     }
   };
 
+  const handleAddImage = (index: number) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.click();
+
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      const nextIndex = index + 1;
+
+      if (file) {
+        const insertNewImage = (images: ImageFile[]) => [
+          ...images.slice(0, nextIndex),
+          new ImageFile(file),
+          ...images.slice(nextIndex),
+        ];
+        setImgFiles(insertNewImage);
+      }
+    };
+  };
+
+  const handleRemoveImage = (index: number) => {
+    setImgFiles(imgFiles.filter((_, i) => i !== index));
+  };
+
   return {
     imgFiles,
     uploadImageFiles: handleFileUpload,
+    addImage: handleAddImage,
+    removeImage: handleRemoveImage,
     isLoading,
     generatePdf,
     pdf,

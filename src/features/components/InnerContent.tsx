@@ -8,8 +8,15 @@ import { Loader } from "@/src/features/components/Loader/Loader";
 import { UploadSection } from "@/src/features/components/UploadSection/UploadSection";
 
 export const InnerContent = () => {
-  const { imgFiles, uploadImageFiles, isLoading, generatePdf, pdf } =
-    useImageFiles();
+  const {
+    imgFiles,
+    uploadImageFiles,
+    addImage,
+    removeImage,
+    isLoading,
+    generatePdf,
+    pdf,
+  } = useImageFiles();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +29,11 @@ export const InnerContent = () => {
       {isLoading && <Loader />}
       <article className="flex flex-col justify-center gap-4 w-full">
         <UploadSection onUpload={uploadImageFiles} />
-        <ImageGrid imgFiles={imgFiles} />
+        <ImageGrid
+          imgFiles={imgFiles}
+          onAddImage={addImage}
+          onRemoveImage={removeImage}
+        />
 
         <form onSubmit={handleSubmit}>
           <Button type="submit">PDF 변환</Button>
