@@ -6,6 +6,8 @@ import { DownloadSection } from "@/src/features/components/DownloadSection/Downl
 import { ImageGrid } from "@/src/features/components/ImageGrid/ImageGrid";
 import { Loader } from "@/src/features/components/Loader/Loader";
 import { UploadSection } from "@/src/features/components/UploadSection/UploadSection";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export const InnerContent = () => {
   const {
@@ -13,6 +15,7 @@ export const InnerContent = () => {
     uploadImageFiles,
     rotateImage,
     addImage,
+    switchImage,
     removeImage,
     isLoading,
     generatePdf,
@@ -30,12 +33,15 @@ export const InnerContent = () => {
       {isLoading && <Loader />}
       <article className="flex flex-col justify-center gap-4 w-full">
         <UploadSection onUpload={uploadImageFiles} />
-        <ImageGrid
-          imgFiles={imgFiles}
-          onAddImage={addImage}
-          onRemoveImage={removeImage}
-          onRotate={rotateImage}
-        />
+        <DndProvider backend={HTML5Backend}>
+          <ImageGrid
+            imgFiles={imgFiles}
+            onAddImage={addImage}
+            onRemoveImage={removeImage}
+            onRotate={rotateImage}
+            onSwitchImage={switchImage}
+          />
+        </DndProvider>
 
         <form onSubmit={handleSubmit}>
           <Button type="submit">PDF 변환</Button>

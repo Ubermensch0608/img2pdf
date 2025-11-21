@@ -1,12 +1,14 @@
-import { Button } from "@/src/components/Button";
+import { RefObject } from "react";
 import { ImageFile } from "../../models/ImageFile";
 import { ImageItem } from "../ImageItem/ImageItem";
+import { useDrop } from "react-dnd";
 
 interface ImageGridProps {
   imgFiles: ImageFile[];
   onAddImage: (index: number) => void;
   onRemoveImage: (id: string) => void;
   onRotate?: (id: string, degree: number) => void;
+  onSwitchImage?: (dragId: string, dropId: string) => void;
 }
 
 export const ImageGrid = ({
@@ -14,38 +16,54 @@ export const ImageGrid = ({
   onAddImage,
   onRemoveImage,
   onRotate,
+  onSwitchImage,
 }: ImageGridProps) => {
   return (
     <article className="w-full">
       <h2 className="text-lg font-bold">업로드한 이미지</h2>
       <ul className="grid grid-cols-4 gap-4 justify-center">
         {imgFiles.map((file, index) => (
-          <li key={file.id} className="flex items-center gap-2">
+          <ImageItemWrapper
+            key={file.id}
+            dropId={file.id}
+            onSwitchImage={onSwitchImage}
+          >
             <ImageItem
-              src={URL.createObjectURL(file.file)}
-              alt={`업로드한 이미지 ${index + 1}번째 ${file.file.name}`}
-              width={"200"}
-              height={"200"}
+              key={file.id}
+              file={file}
+              index={index}
+              onClickAddImageButton={onAddImage}
+              onClickRemoveButton={() => onRemoveImage(file.id)}
               onRotate={(degree) => onRotate?.(file.id, degree)}
             />
-            {/* Toolbar */}
-            <div className="flex flex-col items-center gap-2">
-              <Button
-                className="w-10 h-10 bg-green-400 hover:bg-green-500"
-                onClick={() => onAddImage(index)}
-              >
-                +
-              </Button>
-              <Button
-                className="w-10 h-10 bg-red-400 hover:bg-red-500"
-                onClick={() => onRemoveImage(file.id)}
-              >
-                -
-              </Button>
-            </div>
-          </li>
+          </ImageItemWrapper>
         ))}
       </ul>
     </article>
+  );
+};
+
+const ImageItemWrapper = ({
+  children,
+  onSwitchImage,
+  dropId,
+}: {
+  children: React.ReactNode;
+  onSwitchImage?: (dragId: string, dropId: string) => void;
+  dropId: string;
+}) => {
+  const [, dropRef] = useDrop<{ dragId: string }>(() => ({
+    accept: "IMAGE_ITEM",
+    canDrop(item) {
+      return item.dragId !== dropId;
+    },
+    drop: (item) => {
+      const dragId = item.dragId;
+      onSwitchImage?.(dragId, dropId);
+    },
+  }));
+
+  return (
+    <li ref={dropRef as unknown as RefObject<HTMLLIElement>}>{children}</li>
   );
 };

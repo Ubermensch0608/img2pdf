@@ -14,6 +14,7 @@ type StoreType = {
   addImage: (id: number) => void;
   removeImage: (id: string) => void;
   rotateImage: (id: string, degree: number) => void;
+  switchImage: (dragId: string, dropId: string) => void;
 };
 
 const useImageFilesStore = create<StoreType>((set) => ({
@@ -52,6 +53,26 @@ const useImageFilesStore = create<StoreType>((set) => ({
       }
     };
   },
+  switchImage: (dragId: string, dropId: string) => {
+    set((state) => {
+      const newImgFiles = [...state.imgFiles];
+      const dragImageIndex = newImgFiles.findIndex(
+        (file) => file.id === dragId,
+      );
+      const dropImageIndex = newImgFiles.findIndex(
+        (file) => file.id === dropId,
+      );
+      if (dragImageIndex !== -1 && dropImageIndex !== -1) {
+        const dragImage = newImgFiles[dragImageIndex];
+        const dropImage = newImgFiles[dropImageIndex];
+        newImgFiles[dragImageIndex] = dropImage!;
+        newImgFiles[dropImageIndex] = dragImage!;
+      }
+      return {
+        imgFiles: newImgFiles,
+      };
+    });
+  },
   removeImage: (id: string) => {
     set((state) => ({
       imgFiles: state.imgFiles.filter((file) => file.id !== id),
@@ -79,6 +100,7 @@ export const useImageFiles = () => {
     imageDegrees,
     uploadImageFiles,
     removeImage,
+    switchImage,
     rotateImage,
     addImage,
   } = useImageFilesStore();
@@ -161,6 +183,7 @@ export const useImageFiles = () => {
     uploadImageFiles,
     addImage,
     removeImage,
+    switchImage,
     rotateImage,
     isLoading,
     generatePdf,
