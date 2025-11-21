@@ -1,3 +1,5 @@
+"use client";
+
 import { ElementType } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -8,7 +10,8 @@ type CommonProps = {
 };
 
 type ButtonProps = {
-  type: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  onClick?: React.ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
 };
 
 type AnchorButtonProps = {
