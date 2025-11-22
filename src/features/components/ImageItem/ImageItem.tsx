@@ -67,22 +67,21 @@ export const ImageItem = ({
   };
 
   return (
-    <div
-      className="flex items-center gap-2"
-      ref={dragRef as unknown as RefObject<HTMLDivElement>}
-    >
+    <div className="flex items-center gap-2">
       <div
         style={{ opacity }}
         className="flex flex-col border-2 border-gray-300 rounded-md justify-between items-center gap-4 h-full p-10"
       >
-        <Image
-          width={"200"}
-          height={"200"}
-          src={URL.createObjectURL(file.file)}
-          alt={`업로드한 이미지 ${index + 1}번째 ${file.file.name}`}
-          ref={imageRef}
-          quality={50}
-        />
+        <div ref={dragRef as unknown as RefObject<HTMLDivElement>}>
+          <Image
+            width={"200"}
+            height={"200"}
+            src={URL.createObjectURL(file.file)}
+            alt={`업로드한 이미지 ${index + 1}번째 ${file.file.name}`}
+            ref={imageRef}
+            quality={50}
+          />
+        </div>
         <div className="flex justify-center items-center gap-2">
           <Rotator direction="COUNTER_CLOCKWISE" onRotate={handleRotate} />
           <Rotator direction="CLOCKWISE" onRotate={handleRotate} />
