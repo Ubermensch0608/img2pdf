@@ -5,7 +5,6 @@ import { Button } from "@/components/Button";
 import { DownloadSection } from "@/src/features/components/DownloadSection/DownloadSection";
 import { ImageGrid } from "@/src/features/components/ImageGrid/ImageGrid";
 import { Loader } from "@/src/features/components/Loader/Loader";
-import { UploadSection } from "@/src/features/components/UploadSection/UploadSection";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -32,7 +31,6 @@ export const InnerContent = () => {
     <>
       {isLoading && <Loader />}
       <article className="flex flex-col justify-center gap-4 w-full">
-        <UploadSection onUpload={uploadImageFiles} />
         <DndProvider backend={HTML5Backend}>
           <ImageGrid
             imgFiles={imgFiles}
@@ -40,6 +38,7 @@ export const InnerContent = () => {
             onRemoveImage={removeImage}
             onRotate={rotateImage}
             onSwitchImage={switchImage}
+            onUpload={uploadImageFiles}
           />
         </DndProvider>
 

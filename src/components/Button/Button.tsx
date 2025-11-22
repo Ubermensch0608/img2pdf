@@ -1,6 +1,6 @@
 "use client";
 
-import { ElementType } from "react";
+import { ElementType, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 type CommonProps = {
@@ -11,26 +11,23 @@ type CommonProps = {
 
 type ButtonProps = {
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
-  onClick?: React.ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 type AnchorButtonProps = {
   as: "a";
   href: string;
   download?: string;
-};
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 type LabelButtonProps = {
   as: "label";
   htmlFor?: string;
-};
+} & React.LabelHTMLAttributes<HTMLLabelElement>;
 
-export const Button = ({
-  as = "button",
-  children,
-  className,
-  ...rest
-}: CommonProps & (ButtonProps | AnchorButtonProps | LabelButtonProps)) => {
+export const Button = forwardRef<
+  HTMLButtonElement | HTMLLabelElement | HTMLAnchorElement,
+  CommonProps & (ButtonProps | AnchorButtonProps | LabelButtonProps)
+>(({ as = "button", children, className, ...rest }, ref) => {
   const Component = as;
 
   return (
@@ -39,9 +36,12 @@ export const Button = ({
         "w-fit bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer hover:bg-blue-600",
         className,
       )}
+      ref={ref}
       {...rest}
     >
       {children}
     </Component>
   );
-};
+});
+
+Button.displayName = "Button";

@@ -10,7 +10,7 @@ import { ImageDegree } from "../models/ImageDegree";
 type StoreType = {
   imgFiles: ImageFile[];
   imageDegrees: ImageDegree[];
-  uploadImageFiles: (fileList: FileList | null) => void;
+  uploadImageFiles: (fileList: File[]) => void;
   addImage: (id: number) => void;
   removeImage: (id: string) => void;
   rotateImage: (id: string, degree: number) => void;
@@ -20,10 +20,8 @@ type StoreType = {
 const useImageFilesStore = create<StoreType>((set) => ({
   imgFiles: [],
   imageDegrees: [],
-  uploadImageFiles: (fileList: FileList | null) => {
-    if (!fileList) return;
-
-    const imgFiles = [...fileList].map((file) => new ImageFile(file));
+  uploadImageFiles: (fileList: File[]) => {
+    const imgFiles = fileList.map((file) => new ImageFile(file));
     const imageDegrees = imgFiles.map((file) => new ImageDegree(file.id, 0));
     set({ imgFiles, imageDegrees });
   },
