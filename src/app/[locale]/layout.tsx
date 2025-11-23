@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ServiceWorkerRegister } from "../sw-register";
-import { AppLocale, routing } from "@/src/i18n/routing";
+import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -24,16 +24,14 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: AppLocale }>;
-};
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function Localelayout({ children, params }: Props) {
+export default async function Localelayout({
+  children,
+  params,
+}: LayoutProps<"/[locale]">) {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {

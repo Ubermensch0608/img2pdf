@@ -1,8 +1,14 @@
 import { Header } from "@/src/features/components/Header";
 import { InnerContent } from "@/src/features/components/InnerContent";
-import { AppLocale } from "@/src/i18n/routing";
+import { AppLocale, routing } from "@/src/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({
+    locale,
+  }));
+}
 
 export async function generateMetadata({
   params,
