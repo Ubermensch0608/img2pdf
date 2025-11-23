@@ -1,0 +1,40 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "画像 → PDF 変換器",
+      "description": "画像ファイルをアップロードして、PDFに迅速に変換しましょう。すべての作業はローカルで処理され、安全かつ迅速です。"
+    },
+    "header": {
+      "title": "画像 → PDF 変換器",
+      "description": "画像ファイルをアップロードして、PDFに迅速に変換しましょう。すべての作業はローカルで処理され、安全かつ迅速です。",
+      "aria-label": "ヘッダー"
+    },
+    "innerContent": {
+      "convertButton": "PDFに変換",
+      "convertedPdfTitle": "変換されたPDF",
+      "downloadDescription": "変換されたPDFファイルをダウンロードしてください。"
+    },
+    "imageGrid": {
+      "title": "アップロードされた画像",
+      "description": "画像ファイルをアップロードして、PDFに迅速に変換しましょう。すべての作業はローカルで処理され、安全かつ迅速です。"
+    },
+    "imageItem": {
+      "imageAlt": "アップロードされた画像 {index}",
+      "pageNumber": "{index}番目の画像"
+    },
+    "uploadSection": {
+      "uploadDescription": "画像ファイルをドラッグしたりクリックして選択してください",
+      "uploadInputAriaLabel": "画像ファイルアップロード入力",
+      "uploadButtonAriaLabel": "画像ファイルアップロードボタン"
+    },
+    "downloadSection": {
+      "pageCount": "{count} ページ",
+      "downloadButtonAriaLabel": "ダウンロードボタン",
+      "downloadButtonText": "ダウンロード"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "変換中...",
+    "aria-label": "変換中"
+  }
+}

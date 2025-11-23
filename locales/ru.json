@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Конвертер изображений → PDF",
+      "description": "Загрузите ваши изображения и конвертируйте их в PDF. Все операции выполняются локально — безопасно и быстро."
+    },
+    "header": {
+      "title": "Конвертер изображений → PDF",
+      "description": "Загрузите ваши изображения и конвертируйте их в PDF. Все операции выполняются локально — безопасно и быстро.",
+      "aria-label": "Заголовок"
+    },
+    "innerContent": {
+      "convertButton": "Конвертировать в PDF",
+      "convertedPdfTitle": "Преобразованный PDF",
+      "downloadDescription": "Скачать преобразованный PDF файл."
+    },
+    "imageGrid": {
+      "title": "Загруженные изображения",
+      "description": "Загрузите изображения и конвертируйте их в PDF. Все операции выполняются локально."
+    },
+    "imageItem": {
+      "imageAlt": "Загруженное изображение {index}",
+      "pageNumber": "Страница {index}",
+      "deleteButtonAriaLabel": "Кнопка удаления изображения",
+      "addImageButtonAriaLabel": "Кнопка добавления изображения",
+      "pageNumberAriaLabel": "Изображение номер {index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "Перетащите или нажмите, чтобы выбрать файлы изображений",
+      "uploadInputAriaLabel": "Поле загрузки изображения",
+      "uploadButtonAriaLabel": "Кнопка загрузки изображения"
+    },
+    "downloadSection": {
+      "pageCount": "{count} страниц",
+      "downloadButtonAriaLabel": "Кнопка загрузки",
+      "downloadButtonText": "Скачать"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Конвертация...",
+    "aria-label": "Конвертация"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Bild → PDF Konverter",
+      "description": "Laden Sie Ihre Bilddateien hoch und konvertieren Sie sie in PDF. Alle Vorgänge werden lokal verarbeitet – sicher und schnell."
+    },
+    "header": {
+      "title": "Bild → PDF Konverter",
+      "description": "Laden Sie Ihre Bilddateien hoch und konvertieren Sie sie in PDF. Alle Vorgänge werden lokal verarbeitet – sicher und schnell.",
+      "aria-label": "Kopfbereich"
+    },
+    "innerContent": {
+      "convertButton": "In PDF konvertieren",
+      "convertedPdfTitle": "Konvertiertes PDF",
+      "downloadDescription": "Laden Sie die konvertierte PDF-Datei herunter."
+    },
+    "imageGrid": {
+      "title": "Hochgeladene Bilder",
+      "description": "Laden Sie Ihre Bilder hoch und konvertieren Sie sie in PDF. Alles wird lokal verarbeitet."
+    },
+    "imageItem": {
+      "imageAlt": "Hochgeladenes Bild {index}",
+      "pageNumber": "Seite {index}",
+      "deleteButtonAriaLabel": "Bild löschen",
+      "addImageButtonAriaLabel": "Bild hinzufügen",
+      "pageNumberAriaLabel": "Bild {index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "Zum Hochladen klicken oder Dateien hier ablegen",
+      "uploadInputAriaLabel": "Bildupload-Eingabe",
+      "uploadButtonAriaLabel": "Bildupload-Schaltfläche"
+    },
+    "downloadSection": {
+      "pageCount": "{count} Seiten",
+      "downloadButtonAriaLabel": "Download-Schaltfläche",
+      "downloadButtonText": "Herunterladen"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Wird konvertiert...",
+    "aria-label": "Konvertierung"
+  }
+}

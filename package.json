@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check:locales": "node scripts/check-locale.js"
   },
   "dependencies": {
     "jspdf": "^3.0.4",
     "next": "16.0.3",
+    "next-intl": "^4.5.5",
     "react": "19.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",

@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Image to PDF Converter | Free Image to PDF Converter",
+      "description": "Convert your images to PDF for free. All operations are processed locally for safety and fast."
+    },
+    "header": {
+      "title": "Image → PDF Converter",
+      "description": "Upload your image files and convert them to PDF. All operations are processed locally for safety and fast.",
+      "aria-label": "Header"
+    },
+    "innerContent": {
+      "convertButton": "Convert to PDF",
+      "convertedPdfTitle": "Converted PDF",
+      "downloadDescription": "Download the converted PDF file."
+    },
+    "imageGrid": {
+      "title": "Uploaded Images",
+      "description": "Upload your image files and convert them to PDF. All operations are processed locally for safety and fast."
+    },
+    "imageItem": {
+      "imageAlt": "Uploaded Image {index}",
+      "pageNumber": "Page {index}",
+      "deleteButtonAriaLabel": "Delete Image Button",
+      "addImageButtonAriaLabel": "Add Image Button",
+      "pageNumberAriaLabel": "{index}th Image"
+    },
+    "uploadSection": {
+      "uploadDescription": "Drag and drop or click to select image files",
+      "uploadInputAriaLabel": "Image file upload input",
+      "uploadButtonAriaLabel": "Image file upload button"
+    },
+    "downloadSection": {
+      "pageCount": "{count} pages",
+      "downloadButtonAriaLabel": "Download button",
+      "downloadButtonText": "Download"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Converting...",
+    "aria-label": "Converting"
+  }
+}

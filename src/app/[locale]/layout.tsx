@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ServiceWorkerRegister } from "./sw-register";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { ServiceWorkerRegister } from "../sw-register";
+import { AppLocale, routing } from "@/src/i18n/routing";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
@@ -31,18 +24,31 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: AppLocale }>;
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function Localelayout({ children, params }: Props) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
   return (
-    <html lang="ko">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ServiceWorkerRegister />
-        {children}
+    <html lang={locale}>
+      <body>
+        <NextIntlClientProvider>
+          <ServiceWorkerRegister />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

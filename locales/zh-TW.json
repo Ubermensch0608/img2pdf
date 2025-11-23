@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "圖片 → PDF 轉換器",
+      "description": "上傳您的圖片檔案並轉換為 PDF。所有操作皆在本機處理，更安全且更快速。"
+    },
+    "header": {
+      "title": "圖片 → PDF 轉換器",
+      "description": "上傳您的圖片檔案並轉換為 PDF。所有操作皆在本機處理，更安全且更快速。",
+      "aria-label": "頁首"
+    },
+    "innerContent": {
+      "convertButton": "轉換為 PDF",
+      "convertedPdfTitle": "已轉換的 PDF",
+      "downloadDescription": "下載轉換後的 PDF 檔案。"
+    },
+    "imageGrid": {
+      "title": "已上傳的圖片",
+      "description": "上傳您的圖片檔案並轉換為 PDF。所有操作皆在本機處理，更安全且更快速。"
+    },
+    "imageItem": {
+      "imageAlt": "已上傳的圖片 {index}",
+      "pageNumber": "第 {index} 頁",
+      "deleteButtonAriaLabel": "刪除圖片按鈕",
+      "addImageButtonAriaLabel": "新增圖片按鈕",
+      "pageNumberAriaLabel": "第 {index} 張圖片"
+    },
+    "uploadSection": {
+      "uploadDescription": "拖曳或點擊以選擇圖片檔案",
+      "uploadInputAriaLabel": "圖片檔案上傳輸入框",
+      "uploadButtonAriaLabel": "圖片檔案上傳按鈕"
+    },
+    "downloadSection": {
+      "pageCount": "{count} 頁",
+      "downloadButtonAriaLabel": "下載按鈕",
+      "downloadButtonText": "下載"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "轉換中…",
+    "aria-label": "轉換中"
+  }
+}

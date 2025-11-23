@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Penukar Imej → PDF",
+      "description": "Muat naik fail imej anda dan tukarkannya kepada PDF. Semua operasi diproses secara setempat untuk keselamatan dan kelajuan."
+    },
+    "header": {
+      "title": "Penukar Imej → PDF",
+      "description": "Muat naik fail imej anda dan tukarkannya kepada PDF. Semua operasi diproses secara setempat untuk keselamatan dan kelajuan.",
+      "aria-label": "Pengepala"
+    },
+    "innerContent": {
+      "convertButton": "Tukar kepada PDF",
+      "convertedPdfTitle": "PDF Ditukar",
+      "downloadDescription": "Muat turun fail PDF yang telah ditukar."
+    },
+    "imageGrid": {
+      "title": "Imej Dimuat Naik",
+      "description": "Muat naik fail imej anda dan tukarkannya kepada PDF. Semua operasi diproses secara setempat."
+    },
+    "imageItem": {
+      "imageAlt": "Imej dimuat naik {index}",
+      "pageNumber": "Halaman {index}",
+      "deleteButtonAriaLabel": "Butang padam imej",
+      "addImageButtonAriaLabel": "Butang tambah imej",
+      "pageNumberAriaLabel": "Imej ke-{index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "Seret dan lepas atau klik untuk memilih fail imej",
+      "uploadInputAriaLabel": "Input muat naik fail imej",
+      "uploadButtonAriaLabel": "Butang muat naik imej"
+    },
+    "downloadSection": {
+      "pageCount": "{count} halaman",
+      "downloadButtonAriaLabel": "Butang muat turun",
+      "downloadButtonText": "Muat turun"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Sedang menukar...",
+    "aria-label": "Sedang menukar"
+  }
+}

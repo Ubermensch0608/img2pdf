@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "इमेज → PDF कन्वर्टर",
+      "description": "अपनी इमेज फ़ाइलें अपलोड करें और उन्हें PDF में बदलें। सभी प्रक्रियाएँ सुरक्षा और गति के लिए लोकली की जाती हैं।"
+    },
+    "header": {
+      "title": "इमेज → PDF कन्वर्टर",
+      "description": "अपनी इमेज फ़ाइलें अपलोड करें और उन्हें PDF में बदलें। सभी प्रक्रियाएँ सुरक्षा और गति के लिए लोकली की जाती हैं।",
+      "aria-label": "हेडर"
+    },
+    "innerContent": {
+      "convertButton": "PDF में बदलें",
+      "convertedPdfTitle": "बदला हुआ PDF",
+      "downloadDescription": "बदली हुई PDF फ़ाइल डाउनलोड करें।"
+    },
+    "imageGrid": {
+      "title": "अपलोड की गई इमेजें",
+      "description": "अपनी इमेज फ़ाइलें अपलोड करें और उन्हें PDF में बदलें। सभी प्रक्रियाएँ लोकली होती हैं।"
+    },
+    "imageItem": {
+      "imageAlt": "अपलोड की गई इमेज {index}",
+      "pageNumber": "पृष्ठ {index}",
+      "deleteButtonAriaLabel": "इमेज हटाने का बटन",
+      "addImageButtonAriaLabel": "इमेज जोड़ने का बटन",
+      "pageNumberAriaLabel": "{index}वीं इमेज"
+    },
+    "uploadSection": {
+      "uploadDescription": "खींचें और छोड़ें या इमेज फ़ाइलें चुनने के लिए क्लिक करें",
+      "uploadInputAriaLabel": "इमेज फ़ाइल अपलोड इनपुट",
+      "uploadButtonAriaLabel": "इमेज अपलोड बटन"
+    },
+    "downloadSection": {
+      "pageCount": "{count} पृष्ठ",
+      "downloadButtonAriaLabel": "डाउनलोड बटन",
+      "downloadButtonText": "डाउनलोड"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "रूपांतरण जारी है...",
+    "aria-label": "रूपांतरण"
+  }
+}

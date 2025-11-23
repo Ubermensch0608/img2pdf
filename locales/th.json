@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "ตัวแปลงรูปภาพ → PDF",
+      "description": "อัปโหลดไฟล์รูปภาพของคุณและแปลงเป็น PDF การประมวลผลทั้งหมดทำในเครื่องเพื่อความปลอดภัยและรวดเร็ว"
+    },
+    "header": {
+      "title": "ตัวแปลงรูปภาพ → PDF",
+      "description": "อัปโหลดไฟล์รูปภาพของคุณและแปลงเป็น PDF การประมวลผลทั้งหมดทำในเครื่องเพื่อความปลอดภัยและรวดเร็ว",
+      "aria-label": "ส่วนหัว"
+    },
+    "innerContent": {
+      "convertButton": "แปลงเป็น PDF",
+      "convertedPdfTitle": "PDF ที่แปลงแล้ว",
+      "downloadDescription": "ดาวน์โหลดไฟล์ PDF ที่แปลงแล้ว"
+    },
+    "imageGrid": {
+      "title": "รูปภาพที่อัปโหลด",
+      "description": "อัปโหลดไฟล์รูปภาพและแปลงเป็น PDF การประมวลผลทั้งหมดทำในเครื่อง"
+    },
+    "imageItem": {
+      "imageAlt": "รูปภาพที่อัปโหลด {index}",
+      "pageNumber": "หน้า {index}",
+      "deleteButtonAriaLabel": "ปุ่มลบรูปภาพ",
+      "addImageButtonAriaLabel": "ปุ่มเพิ่มรูปภาพ",
+      "pageNumberAriaLabel": "รูปภาพลำดับที่ {index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "ลากและวาง หรือคลิกเพื่อเลือกไฟล์รูปภาพ",
+      "uploadInputAriaLabel": "ช่องอัปโหลดไฟล์รูปภาพ",
+      "uploadButtonAriaLabel": "ปุ่มอัปโหลดรูปภาพ"
+    },
+    "downloadSection": {
+      "pageCount": "{count} หน้า",
+      "downloadButtonAriaLabel": "ปุ่มดาวน์โหลด",
+      "downloadButtonText": "ดาวน์โหลด"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "กำลังแปลง...",
+    "aria-label": "กำลังแปลง"
+  }
+}

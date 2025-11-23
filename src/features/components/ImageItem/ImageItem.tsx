@@ -7,6 +7,7 @@ import { RotateDirection } from "../Rotator/type";
 import { Button } from "@/src/components/Button";
 import { useDrag } from "react-dnd";
 import { ImageFile } from "../../models/ImageFile";
+import { useTranslations } from "next-intl";
 
 const ROTATION_DEGREE = 90;
 
@@ -30,6 +31,7 @@ export const ImageItem = ({
   onClickAddImageButton,
   onClickRemoveButton,
 }: ImageItemProps) => {
+  const t = useTranslations("HomePage.imageItem");
   const [{ opacity }, dragRef] = useDrag(() => ({
     type: "IMAGE_ITEM",
     item: { dragId: file.id },
@@ -77,10 +79,10 @@ export const ImageItem = ({
             width={"200"}
             height={"200"}
             src={URL.createObjectURL(file.file)}
-            alt={`업로드한 이미지 ${index + 1}번째`}
+            alt={t("imageAlt", { index: index + 1 })}
             ref={imageRef}
             quality={50}
-            aria-label="업로드한 이미지"
+            aria-label={t("imageAlt", { index: index + 1 })}
           />
         </div>
         <div className="flex justify-center items-center gap-2">
@@ -90,12 +92,14 @@ export const ImageItem = ({
           <Button
             className="w-10 h-10 bg-red-400 hover:bg-red-500"
             onClick={onClickRemoveButton}
-            aria-label="이미지 삭제 버튼"
+            aria-label={t("deleteButtonAriaLabel")}
           >
             -
           </Button>
         </div>
-        <div aria-label={`${index + 1} 번째 이미지`}>{index + 1} page</div>
+        <div aria-label={t("pageNumberAriaLabel", { index: index + 1 })}>
+          {index + 1} page
+        </div>
       </div>
 
       {/* Toolbar */}
@@ -103,7 +107,7 @@ export const ImageItem = ({
         <Button
           className="w-10 h-10 bg-green-400 hover:bg-green-500"
           onClick={() => onClickAddImageButton(index)}
-          aria-label="이미지 추가 버튼"
+          aria-label={t("addImageButtonAriaLabel")}
         >
           +
         </Button>

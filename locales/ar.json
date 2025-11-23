@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "محول الصور → PDF",
+      "description": "قم بتحميل ملفات الصور الخاصة بك وتحويلها إلى PDF. تتم جميع العمليات محليًا لضمان الأمان والسرعة."
+    },
+    "header": {
+      "title": "محول الصور → PDF",
+      "description": "قم بتحميل ملفات الصور الخاصة بك وتحويلها إلى PDF. تتم جميع العمليات محليًا لضمان الأمان والسرعة.",
+      "aria-label": "رأس الصفحة"
+    },
+    "innerContent": {
+      "convertButton": "تحويل إلى PDF",
+      "convertedPdfTitle": "ملف PDF المحول",
+      "downloadDescription": "قم بتنزيل ملف PDF المحول."
+    },
+    "imageGrid": {
+      "title": "الصور المرفوعة",
+      "description": "قم بتحميل الصور وتحويلها إلى PDF. تتم جميع العمليات محليًا."
+    },
+    "imageItem": {
+      "imageAlt": "صورة مرفوعة {index}",
+      "pageNumber": "الصفحة {index}",
+      "deleteButtonAriaLabel": "زر حذف الصورة",
+      "addImageButtonAriaLabel": "زر إضافة صورة",
+      "pageNumberAriaLabel": "الصورة رقم {index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "اسحب وأفلت أو انقر لاختيار ملفات الصور",
+      "uploadInputAriaLabel": "حقل رفع ملفات الصور",
+      "uploadButtonAriaLabel": "زر رفع الصور"
+    },
+    "downloadSection": {
+      "pageCount": "{count} صفحات",
+      "downloadButtonAriaLabel": "زر التنزيل",
+      "downloadButtonText": "تنزيل"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "جاري التحويل...",
+    "aria-label": "جاري التحويل"
+  }
+}

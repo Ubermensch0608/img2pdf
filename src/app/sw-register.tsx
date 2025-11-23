@@ -9,10 +9,14 @@ export function ServiceWorkerRegister() {
         navigator.serviceWorker
           .register("/service-worker.js")
           .then((registration) => {
-            console.log("서비스 워커 등록 성공:", registration.scope);
+            if (process.env.NODE_ENV === "development") {
+              console.log("서비스 워커 등록 성공:", registration.scope);
+            }
           })
           .catch((error) => {
-            console.error("서비스 워커 등록 실패:", error);
+            if (process.env.NODE_ENV === "development") {
+              console.error("서비스 워커 등록 실패:", error);
+            }
           });
       });
     }

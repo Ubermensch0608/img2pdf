@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Pengonversi Gambar → PDF",
+      "description": "Unggah file gambar Anda dan ubah menjadi PDF. Semua proses dilakukan secara lokal untuk keamanan dan kecepatan."
+    },
+    "header": {
+      "title": "Pengonversi Gambar → PDF",
+      "description": "Unggah file gambar Anda dan ubah menjadi PDF. Semua proses dilakukan secara lokal untuk keamanan dan kecepatan.",
+      "aria-label": "Header"
+    },
+    "innerContent": {
+      "convertButton": "Konversi ke PDF",
+      "convertedPdfTitle": "PDF yang Dikoversi",
+      "downloadDescription": "Unduh file PDF yang telah dikonversi."
+    },
+    "imageGrid": {
+      "title": "Gambar yang Diunggah",
+      "description": "Unggah gambar Anda dan ubah menjadi PDF. Semua proses dilakukan secara lokal."
+    },
+    "imageItem": {
+      "imageAlt": "Gambar diunggah {index}",
+      "pageNumber": "Halaman {index}",
+      "deleteButtonAriaLabel": "Tombol hapus gambar",
+      "addImageButtonAriaLabel": "Tombol tambah gambar",
+      "pageNumberAriaLabel": "Gambar ke-{index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "Seret dan lepas atau klik untuk memilih file gambar",
+      "uploadInputAriaLabel": "Input unggah file gambar",
+      "uploadButtonAriaLabel": "Tombol unggah gambar"
+    },
+    "downloadSection": {
+      "pageCount": "{count} halaman",
+      "downloadButtonAriaLabel": "Tombol unduh",
+      "downloadButtonText": "Unduh"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Mengonversi...",
+    "aria-label": "Mengonversi"
+  }
+}

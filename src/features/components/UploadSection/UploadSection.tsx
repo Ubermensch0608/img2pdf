@@ -1,4 +1,5 @@
 import { Button } from "@/src/components/Button";
+import { useTranslations } from "next-intl";
 
 const FILE_INPUT_ID = "files";
 const MAX_IMAGE_UPLOAD_COUNT = 10;
@@ -16,6 +17,7 @@ interface UploadSectionProps {
 }
 
 export const UploadSection = ({ onUpload }: UploadSectionProps) => {
+  const t = useTranslations("HomePage.uploadSection");
   const validateFileList = (FileList: FileList | null) => {
     const files = fileListToFiles(FileList);
     if (files.length > MAX_IMAGE_UPLOAD_COUNT) {
@@ -51,13 +53,13 @@ export const UploadSection = ({ onUpload }: UploadSectionProps) => {
       className="w-full bg-amber-50 hover:bg-amber-100 flex flex-col items-center justify-center h-70 border-2 border-gray-300 rounded-md border-dotted"
       htmlFor={FILE_INPUT_ID}
       onDrop={handleDropToUpload}
-      aria-label="이미지 파일 업로드"
+      aria-label={t("uploadButtonAriaLabel")}
     >
       <p
         className="text-center text-gray-500"
-        aria-label="이미지 파일 업로드 설명"
+        aria-label={t("uploadDescription")}
       >
-        이미지 파일을 드래그하거나 클릭하여 선택하세요
+        {t("uploadDescription")}
       </p>
       <input
         id={FILE_INPUT_ID}
@@ -67,9 +69,9 @@ export const UploadSection = ({ onUpload }: UploadSectionProps) => {
         multiple
         onChange={handleFileUpload}
         className="sr-only"
-        aria-label="이미지 파일 업로드 입력"
+        aria-label={t("uploadInputAriaLabel")}
       />
-      <span className="sr-only">이미지 파일 업로드</span>
+      <span className="sr-only">{t("uploadButtonAriaLabel")}</span>
     </Button>
   );
 };

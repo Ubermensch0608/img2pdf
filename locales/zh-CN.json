@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "图片 → PDF 转换器",
+      "description": "上传您的图片文件并转换为 PDF。所有操作均在本地处理，更安全且更快速。"
+    },
+    "header": {
+      "title": "图片 → PDF 转换器",
+      "description": "上传您的图片文件并转换为 PDF。所有操作均在本地处理，更安全且更快速。",
+      "aria-label": "页眉"
+    },
+    "innerContent": {
+      "convertButton": "转换为 PDF",
+      "convertedPdfTitle": "已转换的 PDF",
+      "downloadDescription": "下载转换好的 PDF 文件。"
+    },
+    "imageGrid": {
+      "title": "已上传的图片",
+      "description": "上传您的图片文件并转换为 PDF。所有操作均在本地处理，更安全且更快速。"
+    },
+    "imageItem": {
+      "imageAlt": "已上传的图片 {index}",
+      "pageNumber": "第 {index} 页",
+      "deleteButtonAriaLabel": "删除图片按钮",
+      "addImageButtonAriaLabel": "添加图片按钮",
+      "pageNumberAriaLabel": "第 {index} 个图片"
+    },
+    "uploadSection": {
+      "uploadDescription": "拖放或点击选择图片文件",
+      "uploadInputAriaLabel": "图片文件上传输入框",
+      "uploadButtonAriaLabel": "图片文件上传按钮"
+    },
+    "downloadSection": {
+      "pageCount": "{count} 页",
+      "downloadButtonAriaLabel": "下载按钮",
+      "downloadButtonText": "下载"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "转换中…",
+    "aria-label": "转换中"
+  }
+}

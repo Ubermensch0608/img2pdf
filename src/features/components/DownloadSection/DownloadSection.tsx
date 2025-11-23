@@ -1,4 +1,5 @@
 import { Button } from "@/src/components/Button";
+import { useTranslations } from "next-intl";
 
 interface DownloadSectionProps {
   totalPages: number;
@@ -11,20 +12,21 @@ export const DownloadSection = ({
   blobUrl,
   fileName,
 }: DownloadSectionProps) => {
+  const t = useTranslations("HomePage.downloadSection");
   const downloadFileName =
     fileName ??
     `converted-${Intl.DateTimeFormat("ko-KR").format(new Date())}.pdf`;
 
   return (
     <div className="flex items-center gap-2">
-      <div>{totalPages} 페이지</div>
+      <div>{t("pageCount", { count: totalPages })}</div>
       <Button
         as="a"
         href={blobUrl}
         download={downloadFileName}
-        aria-label="다운로드 버튼"
+        aria-label={t("downloadButtonAriaLabel")}
       >
-        다운로드
+        {t("downloadButtonText")}
       </Button>
     </div>
   );

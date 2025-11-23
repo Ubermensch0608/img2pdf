@@ -3,6 +3,7 @@ import { ImageFile } from "../../models/ImageFile";
 import { ImageItem } from "../ImageItem/ImageItem";
 import { useDrop } from "react-dnd";
 import { UploadSection } from "../UploadSection/UploadSection";
+import { useTranslations } from "next-intl";
 
 interface ImageGridProps {
   imgFiles: ImageFile[];
@@ -21,6 +22,7 @@ export const ImageGrid = ({
   onSwitchImage,
   onUpload,
 }: ImageGridProps) => {
+  const t = useTranslations("HomePage.imageGrid");
   const [, dropRef] = useDrop<{ dragId: string }>(() => ({
     accept: "IMAGE_ITEM",
     drop: (item) => {
@@ -31,7 +33,7 @@ export const ImageGrid = ({
 
   return (
     <article className="w-full">
-      <h2 className="text-lg font-bold">업로드한 이미지</h2>
+      <h2 className="text-lg font-bold">{t("title")}</h2>
       {isEmpty ? (
         <UploadSection onUpload={onUpload} />
       ) : (

@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Conversor de Imagen → PDF",
+      "description": "Sube tus archivos de imagen y conviértelos a PDF. Todas las operaciones se procesan localmente para mayor seguridad y rapidez."
+    },
+    "header": {
+      "title": "Conversor de Imagen → PDF",
+      "description": "Sube tus archivos de imagen y conviértelos a PDF. Todas las operaciones se procesan localmente para mayor seguridad y rapidez.",
+      "aria-label": "Encabezado"
+    },
+    "innerContent": {
+      "convertButton": "Convertir a PDF",
+      "convertedPdfTitle": "PDF Convertido",
+      "downloadDescription": "Descarga el archivo PDF convertido."
+    },
+    "imageGrid": {
+      "title": "Imágenes Subidas",
+      "description": "Sube tus archivos de imagen y conviértelos a PDF. Todas las operaciones se procesan localmente."
+    },
+    "imageItem": {
+      "imageAlt": "Imagen subida {index}",
+      "pageNumber": "Página {index}",
+      "deleteButtonAriaLabel": "Botón de eliminar imagen",
+      "addImageButtonAriaLabel": "Botón de agregar imagen",
+      "pageNumberAriaLabel": "{index}ª imagen"
+    },
+    "uploadSection": {
+      "uploadDescription": "Arrastra y suelta o haz clic para seleccionar archivos de imagen",
+      "uploadInputAriaLabel": "Entrada de subida de archivo de imagen",
+      "uploadButtonAriaLabel": "Botón de subida de archivo de imagen"
+    },
+    "downloadSection": {
+      "pageCount": "{count} páginas",
+      "downloadButtonAriaLabel": "Botón de descarga",
+      "downloadButtonText": "Descargar"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Convirtiendo...",
+    "aria-label": "Convirtiendo"
+  }
+}

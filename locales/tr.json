@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Görüntü → PDF Dönüştürücü",
+      "description": "Görüntü dosyalarınızı yükleyin ve PDF'e dönüştürün. Tüm işlemler güvenli ve hızlı bir şekilde yerel olarak gerçekleştirilir."
+    },
+    "header": {
+      "title": "Görüntü → PDF Dönüştürücü",
+      "description": "Görüntü dosyalarınızı yükleyin ve PDF'e dönüştürün. Tüm işlemler güvenli ve hızlı bir şekilde yerel olarak gerçekleştirilir.",
+      "aria-label": "Üst bilgi"
+    },
+    "innerContent": {
+      "convertButton": "PDF'e Dönüştür",
+      "convertedPdfTitle": "Dönüştürülmüş PDF",
+      "downloadDescription": "Dönüştürülmüş PDF dosyasını indirin."
+    },
+    "imageGrid": {
+      "title": "Yüklenen Görseller",
+      "description": "Görsellerinizi yükleyin ve PDF'e dönüştürün. Tüm işlemler yerel olarak gerçekleştirilir."
+    },
+    "imageItem": {
+      "imageAlt": "Yüklenen görsel {index}",
+      "pageNumber": "Sayfa {index}",
+      "deleteButtonAriaLabel": "Görsel silme düğmesi",
+      "addImageButtonAriaLabel": "Görsel ekleme düğmesi",
+      "pageNumberAriaLabel": "{index}. görsel"
+    },
+    "uploadSection": {
+      "uploadDescription": "Görsel dosyalarını sürükleyip bırakın veya seçmek için tıklayın",
+      "uploadInputAriaLabel": "Görsel dosyası yükleme alanı",
+      "uploadButtonAriaLabel": "Görsel yükleme düğmesi"
+    },
+    "downloadSection": {
+      "pageCount": "{count} sayfa",
+      "downloadButtonAriaLabel": "İndirme düğmesi",
+      "downloadButtonText": "İndir"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Dönüştürülüyor...",
+    "aria-label": "Dönüştürülüyor"
+  }
+}

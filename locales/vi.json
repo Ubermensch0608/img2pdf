@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "metadata": {
+      "title": "Trình chuyển đổi Hình ảnh → PDF",
+      "description": "Tải lên tệp hình ảnh của bạn và chuyển đổi chúng sang PDF. Mọi thao tác đều được xử lý cục bộ để an toàn và nhanh chóng."
+    },
+    "header": {
+      "title": "Trình chuyển đổi Hình ảnh → PDF",
+      "description": "Tải lên tệp hình ảnh của bạn và chuyển đổi chúng sang PDF. Mọi thao tác đều được xử lý cục bộ để an toàn và nhanh chóng.",
+      "aria-label": "Tiêu đề"
+    },
+    "innerContent": {
+      "convertButton": "Chuyển sang PDF",
+      "convertedPdfTitle": "PDF đã chuyển đổi",
+      "downloadDescription": "Tải xuống tệp PDF đã chuyển đổi."
+    },
+    "imageGrid": {
+      "title": "Hình ảnh đã tải lên",
+      "description": "Tải lên tệp hình ảnh và chuyển đổi sang PDF. Mọi thao tác đều xử lý cục bộ."
+    },
+    "imageItem": {
+      "imageAlt": "Hình đã tải lên {index}",
+      "pageNumber": "Trang {index}",
+      "deleteButtonAriaLabel": "Nút xóa hình ảnh",
+      "addImageButtonAriaLabel": "Nút thêm hình ảnh",
+      "pageNumberAriaLabel": "Hình thứ {index}"
+    },
+    "uploadSection": {
+      "uploadDescription": "Kéo thả hoặc nhấp để chọn tệp hình ảnh",
+      "uploadInputAriaLabel": "Ô tải lên tệp hình ảnh",
+      "uploadButtonAriaLabel": "Nút tải lên hình ảnh"
+    },
+    "downloadSection": {
+      "pageCount": "{count} trang",
+      "downloadButtonAriaLabel": "Nút tải xuống",
+      "downloadButtonText": "Tải xuống"
+    }
+  },
+  "Loader": {
+    "loadingDescription": "Đang chuyển đổi...",
+    "aria-label": "Đang chuyển đổi"
+  }
+}
