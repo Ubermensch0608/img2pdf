@@ -14,6 +14,7 @@ export const Rotator = ({
 }: RotatorProps) => {
   return (
     <Button
+      aria-label={`${direction === "CLOCKWISE" ? "시계방향" : "반시계방향"} 회전 버튼`}
       onClick={() => {
         onRotate?.(direction);
       }}

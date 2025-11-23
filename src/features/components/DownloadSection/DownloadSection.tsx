@@ -18,7 +18,12 @@ export const DownloadSection = ({
   return (
     <div className="flex items-center gap-2">
       <div>{totalPages} 페이지</div>
-      <Button as="a" href={blobUrl} download={downloadFileName}>
+      <Button
+        as="a"
+        href={blobUrl}
+        download={downloadFileName}
+        aria-label="다운로드 버튼"
+      >
         다운로드
       </Button>
     </div>

@@ -51,8 +51,12 @@ export const UploadSection = ({ onUpload }: UploadSectionProps) => {
       className="w-full bg-amber-50 hover:bg-amber-100 flex flex-col items-center justify-center h-70 border-2 border-gray-300 rounded-md border-dotted"
       htmlFor={FILE_INPUT_ID}
       onDrop={handleDropToUpload}
+      aria-label="이미지 파일 업로드"
     >
-      <p className="text-center text-gray-500">
+      <p
+        className="text-center text-gray-500"
+        aria-label="이미지 파일 업로드 설명"
+      >
         이미지 파일을 드래그하거나 클릭하여 선택하세요
       </p>
       <input
@@ -62,8 +66,10 @@ export const UploadSection = ({ onUpload }: UploadSectionProps) => {
         accept="image/*"
         multiple
         onChange={handleFileUpload}
-        className="hidden"
+        className="sr-only"
+        aria-label="이미지 파일 업로드 입력"
       />
+      <span className="sr-only">이미지 파일 업로드</span>
     </Button>
   );
 };

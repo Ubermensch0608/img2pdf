@@ -77,9 +77,10 @@ export const ImageItem = ({
             width={"200"}
             height={"200"}
             src={URL.createObjectURL(file.file)}
-            alt={`업로드한 이미지 ${index + 1}번째 ${file.file.name}`}
+            alt={`업로드한 이미지 ${index + 1}번째`}
             ref={imageRef}
             quality={50}
+            aria-label="업로드한 이미지"
           />
         </div>
         <div className="flex justify-center items-center gap-2">
@@ -89,11 +90,12 @@ export const ImageItem = ({
           <Button
             className="w-10 h-10 bg-red-400 hover:bg-red-500"
             onClick={onClickRemoveButton}
+            aria-label="이미지 삭제 버튼"
           >
             -
           </Button>
         </div>
-        <div>{index + 1} page</div>
+        <div aria-label={`${index + 1} 번째 이미지`}>{index + 1} page</div>
       </div>
 
       {/* Toolbar */}
@@ -101,6 +103,7 @@ export const ImageItem = ({
         <Button
           className="w-10 h-10 bg-green-400 hover:bg-green-500"
           onClick={() => onClickAddImageButton(index)}
+          aria-label="이미지 추가 버튼"
         >
           +
         </Button>
