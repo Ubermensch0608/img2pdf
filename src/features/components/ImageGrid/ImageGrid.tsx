@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { memo, RefObject } from "react";
 import { ImageFile } from "../../models/ImageFile";
 import { ImageItem } from "../ImageItem/ImageItem";
 import { useDrop } from "react-dnd";
@@ -14,51 +14,55 @@ interface ImageGridProps {
   onUpload: (fileList: File[]) => void;
 }
 
-export const ImageGrid = ({
-  imgFiles,
-  onAddImage,
-  onRemoveImage,
-  onRotate,
-  onSwitchImage,
-  onUpload,
-}: ImageGridProps) => {
-  const t = useTranslations("HomePage.imageGrid");
-  const [, dropRef] = useDrop<{ dragId: string }>(() => ({
-    accept: "IMAGE_ITEM",
-    drop: (item) => {
-      console.log(item);
-    },
-  }));
-  const isEmpty = imgFiles.length === 0;
+export const ImageGrid = memo(
+  ({
+    imgFiles,
+    onAddImage,
+    onRemoveImage,
+    onRotate,
+    onSwitchImage,
+    onUpload,
+  }: ImageGridProps) => {
+    const t = useTranslations("HomePage.imageGrid");
+    const [, dropRef] = useDrop<{ dragId: string }>(() => ({
+      accept: "IMAGE_ITEM",
+      drop: (item) => {
+        console.log(item);
+      },
+    }));
+    const isEmpty = imgFiles.length === 0;
 
-  return (
-    <article className="w-full">
-      <h2 className="text-lg font-bold">{t("title")}</h2>
-      {isEmpty ? (
-        <UploadSection onUpload={onUpload} />
-      ) : (
-        <ul className="grid grid-cols-4 gap-4 justify-center">
-          {imgFiles.map((file, index) => (
-            <ImageItemWrapper
-              key={file.id}
-              dropId={file.id}
-              onSwitchImage={onSwitchImage}
-            >
-              <ImageItem
+    return (
+      <article className="w-full">
+        <h2 className="text-lg font-bold">{t("title")}</h2>
+        {isEmpty ? (
+          <UploadSection onUpload={onUpload} />
+        ) : (
+          <ul className="grid grid-cols-4 gap-4 justify-center">
+            {imgFiles.map((file, index) => (
+              <ImageItemWrapper
                 key={file.id}
-                file={file}
-                index={index}
-                onClickAddImageButton={onAddImage}
-                onClickRemoveButton={() => onRemoveImage(file.id)}
-                onRotate={(degree) => onRotate?.(file.id, degree)}
-              />
-            </ImageItemWrapper>
-          ))}
-        </ul>
-      )}
-    </article>
-  );
-};
+                dropId={file.id}
+                onSwitchImage={onSwitchImage}
+              >
+                <ImageItem
+                  key={file.id}
+                  file={file}
+                  index={index}
+                  onClickAddImageButton={onAddImage}
+                  onClickRemoveButton={() => onRemoveImage(file.id)}
+                  onRotate={(degree) => onRotate?.(file.id, degree)}
+                />
+              </ImageItemWrapper>
+            ))}
+          </ul>
+        )}
+      </article>
+    );
+  },
+);
+
+ImageGrid.displayName = "ImageGrid";
 
 const ImageItemWrapper = ({
   children,

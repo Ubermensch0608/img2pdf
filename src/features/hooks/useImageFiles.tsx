@@ -79,13 +79,11 @@ const useImageFilesStore = create<StoreType>((set) => ({
   },
   rotateImage: (id: string, degree: number) => {
     set((state) => {
-      const targetImageDegree = state.imageDegrees.find(
-        (degree) => degree.id === id,
-      );
-      if (targetImageDegree) {
-        targetImageDegree.updateDegree(degree);
-      }
-      return state;
+      return {
+        imageDegrees: state.imageDegrees.map((d) =>
+          d.id === id ? new ImageDegree(d.id, degree) : d,
+        ),
+      };
     });
   },
 }));

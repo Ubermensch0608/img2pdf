@@ -6,6 +6,7 @@ import { DownloadSection } from "@/src/features/components/DownloadSection/Downl
 import { ImageGrid } from "@/src/features/components/ImageGrid/ImageGrid";
 import { Loader } from "@/src/features/components/Loader/Loader";
 import { useTranslations } from "next-intl";
+import { useCallback } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -23,11 +24,14 @@ export const InnerContent = () => {
     pdf,
   } = useImageFiles();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    await generatePdf();
-  };
+      await generatePdf();
+    },
+    [generatePdf],
+  );
 
   return (
     <>
@@ -51,9 +55,7 @@ export const InnerContent = () => {
         <article className="flex flex-col justify-center gap-2">
           <div className="flex items-center gap-2">
             <h2 className="text-lg font-bold">{t("convertedPdfTitle")}</h2>
-            <p className="text-sm text-gray-500">
-              {t("downloadDescription")}
-            </p>
+            <p className="text-sm text-gray-500">{t("downloadDescription")}</p>
           </div>
           {pdf && (
             <DownloadSection

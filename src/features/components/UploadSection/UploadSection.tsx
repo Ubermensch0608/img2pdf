@@ -1,5 +1,6 @@
 import { Button } from "@/src/components/Button";
 import { useTranslations } from "next-intl";
+import { toast } from "react-toastify";
 
 const FILE_INPUT_ID = "files";
 const MAX_IMAGE_UPLOAD_COUNT = 10;
@@ -18,11 +19,12 @@ interface UploadSectionProps {
 
 export const UploadSection = ({ onUpload }: UploadSectionProps) => {
   const t = useTranslations("HomePage.uploadSection");
+
   const validateFileList = (FileList: FileList | null) => {
     const files = fileListToFiles(FileList);
     if (files.length > MAX_IMAGE_UPLOAD_COUNT) {
       throw new Error(
-        `최대 ${MAX_IMAGE_UPLOAD_COUNT}개의 이미지만 업로드할 수 있습니다.`,
+        t("maxImageUploadCountError", { count: MAX_IMAGE_UPLOAD_COUNT }),
       );
     }
     return filterOnlyImageFiles(files);
@@ -34,9 +36,7 @@ export const UploadSection = ({ onUpload }: UploadSectionProps) => {
       onUpload(files);
     } catch (error: unknown) {
       if (error instanceof Error) {
-        alert(error.message);
-      } else {
-        alert("알 수 없는 오류가 발생했습니다.");
+        toast.error(error.message);
       }
     }
   };

@@ -3,6 +3,7 @@ import { InnerContent } from "@/src/features/components/InnerContent";
 import { AppLocale, routing } from "@/src/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
+import { Slide, ToastContainer } from "react-toastify";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({
@@ -31,13 +32,20 @@ export default function Home({
 }) {
   const { locale } = use(params);
 
-  // 이 페이지도 static rendering 사용 가능하게
   setRequestLocale(locale);
 
   return (
     <main className="flex flex-col items-center justify-center p-4 gap-4">
       <Header />
       <InnerContent />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        closeButton={false}
+        hideProgressBar
+        transition={Slide}
+        rtl={locale === "ar"}
+      />
     </main>
   );
 }
