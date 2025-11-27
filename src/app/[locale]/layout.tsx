@@ -5,6 +5,7 @@ import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
@@ -46,6 +47,7 @@ export default async function Localelayout({
         <NextIntlClientProvider>
           <ServiceWorkerRegister />
           {children}
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
