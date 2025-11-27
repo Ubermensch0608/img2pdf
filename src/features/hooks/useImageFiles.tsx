@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { ImageFile } from "../models/ImageFile";
 import jsPDF from "jspdf";
 
 import { create } from "zustand";
 import { ImageDegree } from "../models/ImageDegree";
+import type {
+  WorkerRequest,
+  WorkerResponse,
+  ImageData,
+} from "@/src/types/worker.types";
 
 type StoreType = {
   imgFiles: ImageFile[];
@@ -90,6 +95,8 @@ const useImageFilesStore = create<StoreType>((set) => ({
 
 export const useImageFiles = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const workerRef = useRef<Worker | null>(null);
 
   const {
     imgFiles,
@@ -103,7 +110,26 @@ export const useImageFiles = () => {
 
   const [pdf, setPdf] = useState<jsPDF | null>(null);
 
-  const imagesToPdf = async (imgFiles: ImageFile[]) => {
+  // 헬퍼 함수들을 useCallback으로 먼저 정의
+  const readAsDataURL = useCallback((file: File) => {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject;
+      reader.readAsDataURL(file);
+    });
+  }, []);
+
+  const loadImage = useCallback((src: string) => {
+    return new Promise<HTMLImageElement>((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject;
+      img.src = src;
+    });
+  }, []);
+
+  const imagesToPdfSync = useCallback(async (imgFiles: ImageFile[]) => {
     const pdf = new jsPDF("p", "px", "a4");
 
     for (let i = 0; i < imgFiles.length; i++) {
@@ -142,37 +168,94 @@ export const useImageFiles = () => {
     }
 
     return pdf;
-  };
+  }, [imageDegrees, readAsDataURL, loadImage]);
 
-  const readAsDataURL = (file: File) => {
-    return new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = () => reject;
-      reader.readAsDataURL(file);
-    });
-  };
+  // Web Worker 초기화 및 정리
+  useEffect(() => {
+    // Worker 초기화
+    workerRef.current = new Worker(
+      new URL("@/src/workers/pdf.worker.ts", import.meta.url),
+      { type: "module" }
+    );
 
-  const loadImage = (src: string) => {
-    return new Promise<HTMLImageElement>((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = () => reject;
-      img.src = src;
-    });
-  };
+    // Worker 메시지 핸들러
+    workerRef.current.onmessage = async (event: MessageEvent<WorkerResponse>) => {
+      const { type, data, error, progress: workerProgress } = event.data;
 
-  const generatePdf = async () => {
+      if (type === "PROGRESS" && workerProgress !== undefined) {
+        setProgress(workerProgress);
+      } else if (type === "PDF_GENERATED" && data) {
+        try {
+          // Worker가 완료되면 동기 방식으로 최종 PDF 생성
+          const pdf = await imagesToPdfSync(imgFiles);
+          setPdf(pdf);
+          setIsLoading(false);
+          setProgress(100);
+        } catch (err) {
+          console.error("PDF 처리 중 오류:", err);
+          setIsLoading(false);
+          setProgress(0);
+        }
+      } else if (type === "ERROR") {
+        console.error("PDF 변환 중 오류 발생:", error);
+        setIsLoading(false);
+        setProgress(0);
+      }
+    };
+
+    workerRef.current.onerror = (error) => {
+      console.error("Worker 오류:", error);
+      setIsLoading(false);
+      setProgress(0);
+    };
+
+    return () => {
+      workerRef.current?.terminate();
+    };
+  }, [imgFiles, imagesToPdfSync]);
+
+  const generatePdf = useCallback(async () => {
+    if (!workerRef.current) {
+      console.error("Worker가 초기화되지 않았습니다.");
+      return;
+    }
+
     setIsLoading(true);
+    setProgress(0);
+
     try {
-      const pdf = await imagesToPdf(imgFiles);
-      setPdf(pdf);
+      // 모든 이미지를 ImageData 형식으로 변환
+      const imageDataList: ImageData[] = await Promise.all(
+        imgFiles.map(async (file) => {
+          const degreeByMatchedImage = imageDegrees.find(
+            (degree) => degree.id === file.id,
+          );
+          const dataUrl = await readAsDataURL(file.file);
+          const img = await loadImage(dataUrl);
+
+          return {
+            id: file.id,
+            dataUrl,
+            width: img.width,
+            height: img.height,
+            degree: degreeByMatchedImage?.degree || 0,
+          };
+        }),
+      );
+
+      // Worker에 PDF 생성 요청
+      const request: WorkerRequest = {
+        type: "GENERATE_PDF",
+        images: imageDataList,
+      };
+
+      workerRef.current.postMessage(request);
     } catch (error) {
       console.error("PDF 변환 중 오류 발생:", error);
-    } finally {
       setIsLoading(false);
+      setProgress(0);
     }
-  };
+  }, [imgFiles, imageDegrees, readAsDataURL, loadImage]);
 
   return {
     imgFiles,
@@ -182,6 +265,7 @@ export const useImageFiles = () => {
     switchImage,
     rotateImage,
     isLoading,
+    progress,
     generatePdf,
     pdf,
   };

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Rotator } from "../Rotator/Rotator";
-import { memo, RefObject, useMemo, useRef } from "react";
+import { memo, RefObject, useMemo, useRef, useEffect } from "react";
 import { RotateDirection } from "../Rotator/type";
 import { Button } from "@/src/components/Button";
 import { useDrag } from "react-dnd";
