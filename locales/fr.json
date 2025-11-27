@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Glissez-déposez ou cliquez pour sélectionner des fichiers image",
       "uploadInputAriaLabel": "Champ de téléversement d'images",
-      "uploadButtonAriaLabel": "Bouton de téléversement"
+      "uploadButtonAriaLabel": "Bouton de téléversement",
+      "maxImageUploadCountError": "Vous pouvez téléverser jusqu'à {count} images maximum."
     },
     "downloadSection": {
       "pageCount": "{count} pages",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Conversion...",
     "aria-label": "Conversion"
+  },
+  "Error": {
+    "title": "Erreur",
+    "description": "Une erreur est survenue lors du chargement de la page.",
+    "goBack": "Retour à la page d'accueil"
   }
 }

@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "拖曳或點擊以選擇圖片檔案",
       "uploadInputAriaLabel": "圖片檔案上傳輸入框",
-      "uploadButtonAriaLabel": "圖片檔案上傳按鈕"
+      "uploadButtonAriaLabel": "圖片檔案上傳按鈕",
+      "maxImageUploadCountError": "您最多可以上傳 {count} 張圖片。"
     },
     "downloadSection": {
       "pageCount": "{count} 頁",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "轉換中…",
     "aria-label": "轉換中"
+  },
+  "Error": {
+    "title": "錯誤",
+    "description": "載入頁面時發生錯誤。",
+    "goBack": "返回首頁"
   }
 }

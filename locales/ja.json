@@ -20,12 +20,16 @@
     },
     "imageItem": {
       "imageAlt": "アップロードされた画像 {index}",
-      "pageNumber": "{index}番目の画像"
+      "pageNumber": "ページ {index}",
+      "deleteButtonAriaLabel": "画像削除ボタン",
+      "addImageButtonAriaLabel": "画像追加ボタン",
+      "pageNumberAriaLabel": "{index}番目の画像"
     },
     "uploadSection": {
       "uploadDescription": "画像ファイルをドラッグしたりクリックして選択してください",
       "uploadInputAriaLabel": "画像ファイルアップロード入力",
-      "uploadButtonAriaLabel": "画像ファイルアップロードボタン"
+      "uploadButtonAriaLabel": "画像ファイルアップロードボタン",
+      "maxImageUploadCountError": "最大{count}枚の画像までアップロードできます。"
     },
     "downloadSection": {
       "pageCount": "{count} ページ",
@@ -36,5 +40,10 @@
   "Loader": {
     "loadingDescription": "変換中...",
     "aria-label": "変換中"
+  },
+  "Error": {
+    "title": "エラー",
+    "description": "ページの読み込み中にエラーが発生しました。",
+    "goBack": "ホームページに戻る"
   }
 }

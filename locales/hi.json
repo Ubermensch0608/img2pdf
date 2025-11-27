@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "खींचें और छोड़ें या इमेज फ़ाइलें चुनने के लिए क्लिक करें",
       "uploadInputAriaLabel": "इमेज फ़ाइल अपलोड इनपुट",
-      "uploadButtonAriaLabel": "इमेज अपलोड बटन"
+      "uploadButtonAriaLabel": "इमेज अपलोड बटन",
+      "maxImageUploadCountError": "आप अधिकतम {count} इमेज अपलोड कर सकते हैं।"
     },
     "downloadSection": {
       "pageCount": "{count} पृष्ठ",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "रूपांतरण जारी है...",
     "aria-label": "रूपांतरण"
+  },
+  "Error": {
+    "title": "त्रुटि",
+    "description": "पृष्ठ लोड करते समय एक त्रुटि हुई।",
+    "goBack": "होम पेज पर वापस जाएं"
   }
 }

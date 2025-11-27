@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Zum Hochladen klicken oder Dateien hier ablegen",
       "uploadInputAriaLabel": "Bildupload-Eingabe",
-      "uploadButtonAriaLabel": "Bildupload-Schaltfläche"
+      "uploadButtonAriaLabel": "Bildupload-Schaltfläche",
+      "maxImageUploadCountError": "Sie können maximal {count} Bilder hochladen."
     },
     "downloadSection": {
       "pageCount": "{count} Seiten",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Wird konvertiert...",
     "aria-label": "Konvertierung"
+  },
+  "Error": {
+    "title": "Fehler",
+    "description": "Ein Fehler ist während der Seitenladung aufgetreten.",
+    "goBack": "Zurück zur Startseite"
   }
 }

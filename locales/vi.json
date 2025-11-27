@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Kéo thả hoặc nhấp để chọn tệp hình ảnh",
       "uploadInputAriaLabel": "Ô tải lên tệp hình ảnh",
-      "uploadButtonAriaLabel": "Nút tải lên hình ảnh"
+      "uploadButtonAriaLabel": "Nút tải lên hình ảnh",
+      "maxImageUploadCountError": "Bạn có thể tải lên tối đa {count} hình ảnh."
     },
     "downloadSection": {
       "pageCount": "{count} trang",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Đang chuyển đổi...",
     "aria-label": "Đang chuyển đổi"
+  },
+  "Error": {
+    "title": "Lỗi",
+    "description": "Đã xảy ra lỗi khi tải trang.",
+    "goBack": "Quay lại trang chủ"
   }
 }

@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Seret dan lepas atau klik untuk memilih file gambar",
       "uploadInputAriaLabel": "Input unggah file gambar",
-      "uploadButtonAriaLabel": "Tombol unggah gambar"
+      "uploadButtonAriaLabel": "Tombol unggah gambar",
+      "maxImageUploadCountError": "Anda dapat mengunggah maksimal {count} gambar."
     },
     "downloadSection": {
       "pageCount": "{count} halaman",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Mengonversi...",
     "aria-label": "Mengonversi"
+  },
+  "Error": {
+    "title": "Kesalahan",
+    "description": "Terjadi kesalahan saat memuat halaman.",
+    "goBack": "Kembali ke halaman beranda"
   }
 }

@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Seret dan lepas atau klik untuk memilih fail imej",
       "uploadInputAriaLabel": "Input muat naik fail imej",
-      "uploadButtonAriaLabel": "Butang muat naik imej"
+      "uploadButtonAriaLabel": "Butang muat naik imej",
+      "maxImageUploadCountError": "Anda boleh memuat naik sehingga {count} imej maksimum."
     },
     "downloadSection": {
       "pageCount": "{count} halaman",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Sedang menukar...",
     "aria-label": "Sedang menukar"
+  },
+  "Error": {
+    "title": "Ralat",
+    "description": "Ralat berlaku semasa memuatkan halaman.",
+    "goBack": "Kembali ke halaman utama"
   }
 }

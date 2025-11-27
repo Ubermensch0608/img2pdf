@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Перетащите или нажмите, чтобы выбрать файлы изображений",
       "uploadInputAriaLabel": "Поле загрузки изображения",
-      "uploadButtonAriaLabel": "Кнопка загрузки изображения"
+      "uploadButtonAriaLabel": "Кнопка загрузки изображения",
+      "maxImageUploadCountError": "Вы можете загрузить до {count} изображений максимум."
     },
     "downloadSection": {
       "pageCount": "{count} страниц",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Конвертация...",
     "aria-label": "Конвертация"
+  },
+  "Error": {
+    "title": "Ошибка",
+    "description": "Произошла ошибка при загрузке страницы.",
+    "goBack": "Вернуться на главную страницу"
   }
 }

@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "ลากและวาง หรือคลิกเพื่อเลือกไฟล์รูปภาพ",
       "uploadInputAriaLabel": "ช่องอัปโหลดไฟล์รูปภาพ",
-      "uploadButtonAriaLabel": "ปุ่มอัปโหลดรูปภาพ"
+      "uploadButtonAriaLabel": "ปุ่มอัปโหลดรูปภาพ",
+      "maxImageUploadCountError": "คุณสามารถอัปโหลดได้สูงสุด {count} รูปภาพ"
     },
     "downloadSection": {
       "pageCount": "{count} หน้า",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "กำลังแปลง...",
     "aria-label": "กำลังแปลง"
+  },
+  "Error": {
+    "title": "ข้อผิดพลาด",
+    "description": "เกิดข้อผิดพลาดขณะโหลดหน้าเว็บ",
+    "goBack": "กลับไปที่หน้าหลัก"
   }
 }

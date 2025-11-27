@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "اسحب وأفلت أو انقر لاختيار ملفات الصور",
       "uploadInputAriaLabel": "حقل رفع ملفات الصور",
-      "uploadButtonAriaLabel": "زر رفع الصور"
+      "uploadButtonAriaLabel": "زر رفع الصور",
+      "maxImageUploadCountError": "يمكنك رفع ما يصل إلى {count} صورة كحد أقصى."
     },
     "downloadSection": {
       "pageCount": "{count} صفحات",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "جاري التحويل...",
     "aria-label": "جاري التحويل"
+  },
+  "Error": {
+    "title": "خطأ",
+    "description": "حدث خطأ أثناء تحميل الصفحة.",
+    "goBack": "العودة إلى الصفحة الرئيسية"
   }
 }

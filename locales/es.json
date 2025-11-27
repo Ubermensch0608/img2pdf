@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Arrastra y suelta o haz clic para seleccionar archivos de imagen",
       "uploadInputAriaLabel": "Entrada de subida de archivo de imagen",
-      "uploadButtonAriaLabel": "Botón de subida de archivo de imagen"
+      "uploadButtonAriaLabel": "Botón de subida de archivo de imagen",
+      "maxImageUploadCountError": "Puedes subir hasta {count} imágenes como máximo."
     },
     "downloadSection": {
       "pageCount": "{count} páginas",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Convirtiendo...",
     "aria-label": "Convirtiendo"
+  },
+  "Error": {
+    "title": "Error",
+    "description": "Ocurrió un error al cargar la página.",
+    "goBack": "Volver a la página de inicio"
   }
 }

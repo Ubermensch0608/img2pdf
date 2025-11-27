@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Drag and drop or click to select image files",
       "uploadInputAriaLabel": "Image file upload input",
-      "uploadButtonAriaLabel": "Image file upload button"
+      "uploadButtonAriaLabel": "Image file upload button",
+      "maxImageUploadCountError": "You can upload up to {count} images maximum."
     },
     "downloadSection": {
       "pageCount": "{count} pages",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Converting...",
     "aria-label": "Converting"
+  },
+  "Error": {
+    "title": "Error",
+    "description": "An error occurred while loading the page.",
+    "goBack": "Go back to the home page"
   }
 }

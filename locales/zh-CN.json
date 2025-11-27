@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "拖放或点击选择图片文件",
       "uploadInputAriaLabel": "图片文件上传输入框",
-      "uploadButtonAriaLabel": "图片文件上传按钮"
+      "uploadButtonAriaLabel": "图片文件上传按钮",
+      "maxImageUploadCountError": "您最多可以上传 {count} 张图片。"
     },
     "downloadSection": {
       "pageCount": "{count} 页",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "转换中…",
     "aria-label": "转换中"
+  },
+  "Error": {
+    "title": "错误",
+    "description": "加载页面时发生错误。",
+    "goBack": "返回首页"
   }
 }

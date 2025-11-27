@@ -28,7 +28,8 @@
     "uploadSection": {
       "uploadDescription": "Görsel dosyalarını sürükleyip bırakın veya seçmek için tıklayın",
       "uploadInputAriaLabel": "Görsel dosyası yükleme alanı",
-      "uploadButtonAriaLabel": "Görsel yükleme düğmesi"
+      "uploadButtonAriaLabel": "Görsel yükleme düğmesi",
+      "maxImageUploadCountError": "Maksimum {count} görsel yükleyebilirsiniz."
     },
     "downloadSection": {
       "pageCount": "{count} sayfa",
@@ -39,5 +40,10 @@
   "Loader": {
     "loadingDescription": "Dönüştürülüyor...",
     "aria-label": "Dönüştürülüyor"
+  },
+  "Error": {
+    "title": "Hata",
+    "description": "Sayfa yüklenirken bir hata oluştu.",
+    "goBack": "Ana sayfaya dön"
   }
 }
