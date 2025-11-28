@@ -91,6 +91,15 @@ export default function Home({
         transition={Slide}
         rtl={locale === "ar"}
       />
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-8007193642025043"
+        data-ad-slot="8943121256"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </main>
   );
 }
