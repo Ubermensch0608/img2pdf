@@ -9,10 +9,54 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { FALLBACK_BASE_URL } from "@/src/constants";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || FALLBACK_BASE_URL;
+
 export const metadata: Metadata = {
   title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
   description:
     "이미지를 JPG/PNG 파일로 업로드하여 PDF로 빠르게 변환하세요. 모든 작업은 로컬에서 처리되어 안전하고 빠릅니다.",
+  keywords: [
+    "image to pdf",
+    "pdf converter",
+    "jpg to pdf",
+    "png to pdf",
+    "이미지 pdf 변환",
+    "사진 pdf 변환",
+    "무료 pdf 변환기",
+  ],
+  authors: [{ name: "img2pdf" }],
+  openGraph: {
+    title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
+    description:
+      "이미지를 JPG/PNG 파일로 업로드하여 PDF로 빠르게 변환하세요. 모든 작업은 로컬에서 처리되어 안전하고 빠릅니다.",
+    url: `${baseUrl}`,
+    siteName: "img2pdf",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
+    description:
+      "이미지를 JPG/PNG 파일로 업로드하여 PDF로 빠르게 변환하세요. 모든 작업은 로컬에서 처리되어 안전하고 빠릅니다.",
+    images: [`${baseUrl}/api/og`],
+  },
+  alternates: {
+    canonical: `${baseUrl}`,
+    languages: routing.locales.reduce(
+      (acc, loc) => {
+        acc[loc] = `${baseUrl}/${loc}`;
+        return acc;
+      },
+      {} as Record<string, string>,
+    ),
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
