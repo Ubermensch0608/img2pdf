@@ -43,7 +43,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: `${baseUrl}/og-image.png`,
+          url: `${baseUrl}/api/og`,
           width: 1200,
           height: 630,
           alt: t("title"),
@@ -51,10 +51,10 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: "Image to PDF Converter Shared Thumbnail",
       title: t("title"),
       description: t("description"),
-      images: [`${baseUrl}/og-image.png`],
+      images: [`${baseUrl}/api/og`],
     },
     alternates: {
       canonical: `${baseUrl}/${locale}`,
