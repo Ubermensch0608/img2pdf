@@ -52,7 +52,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "Image to PDF Converter Shared Thumbnail",
+      card: "summary_large_image",
       title: t("title"),
       description: t("description"),
       images: [`${baseUrl}/api/og`],
