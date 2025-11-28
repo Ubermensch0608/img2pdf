@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
 import { Slide, ToastContainer } from "react-toastify";
 
+//
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({
     locale,
