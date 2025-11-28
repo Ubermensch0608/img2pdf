@@ -5,6 +5,12 @@ import { routing } from "@/src/i18n/routing";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+<<<<<<< Updated upstream
+=======
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { FALLBACK_BASE_URL } from "@/src/constants";
+>>>>>>> Stashed changes
 
 export const metadata: Metadata = {
   title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
@@ -40,8 +46,42 @@ export default async function Localelayout({
 
   setRequestLocale(locale);
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || FALLBACK_BASE_URL;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: locale === "ko" ? "이미지 PDF 변환기" : "Image to PDF Converter",
+    description:
+      locale === "ko"
+        ? "이미지를 PDF로 무료로 변환하세요. 모든 작업은 로컬에서 처리되어 안전하고 빠릅니다."
+        : "Convert your images to PDF for free. All operations are processed locally for safety and fast.",
+    url: `${baseUrl}/${locale}`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "Image to PDF conversion",
+      "JPG to PDF",
+      "PNG to PDF",
+      "Local processing",
+      "Fast conversion",
+      "Free tool",
+    ],
+  };
+
   return (
     <html lang={locale}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <NextIntlClientProvider>
           <ServiceWorkerRegister />
