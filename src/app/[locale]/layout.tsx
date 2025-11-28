@@ -131,6 +131,11 @@ export default async function Localelayout({
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "${clarityId}");`}
       </script>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8007193642025043"
+        crossOrigin="anonymous"
+      />
       <body>
         <NextIntlClientProvider>
           <ServiceWorkerRegister />
