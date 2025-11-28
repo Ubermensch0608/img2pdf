@@ -10,6 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { FALLBACK_BASE_URL } from "@/src/constants";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || FALLBACK_BASE_URL;
+const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 export const metadata: Metadata = {
   title: "이미지 PDF 변환기 | 이미지 → PDF 무료 변환",
@@ -123,6 +124,13 @@ export default async function Localelayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
+      <script type="text/javascript">
+        {`(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "${clarityId}");`}
+      </script>
       <body>
         <NextIntlClientProvider>
           <ServiceWorkerRegister />
